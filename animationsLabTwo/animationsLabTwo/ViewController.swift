@@ -177,16 +177,39 @@ class ViewController: UIViewController {
               }
     }
     @objc func handleResetButton(){
-        let beachBallArray = [self.beachBallOne,self.beachBallTwo,self.beachBallThree,self.beachBallFour]
-        for image in beachBallArray {
-            image.center.y = 116
-        }
+          let buttonArray = [beachBallOne,beachBallTwo,beachBallThree,beachBallFour]
+             
+             for button in buttonArray {
+             switch button {
+             case beachBallOne:
+                 UIView.animate(withDuration: 5, delay: 0, options: .curveLinear, animations: {
+                     self.beachBallOne.center = CGPoint(x: self.beachBallOne.center.x , y: 116 )
+                },completion: nil)
+             case beachBallTwo:
+                 UIView.animate(withDuration: 5, delay: 0, options: .curveEaseIn, animations: {
+                      self.beachBallTwo.center = CGPoint(x: self.beachBallTwo.center.x , y: 116 )
+                 },completion: nil)
+                                 
+             case beachBallThree:
+                 UIView.animate(withDuration: 5, delay: 0, options: .curveEaseOut, animations: {
+                     self.beachBallThree.center = CGPoint(x: self.beachBallThree.center.x , y: 116 )
+                  },completion: nil)
+                                 
+             case beachBallFour:
+                 UIView.animate(withDuration: 5, delay: 0, options: .curveEaseInOut, animations: {
+                     self.beachBallFour.center = CGPoint(x: self.beachBallFour.center.x , y: 116 )
+                  },completion: nil)
+                                
+             default:
+                 return
+             }
+    }
     }
     
     @objc func handleAnimateButton(){
        
         let buttonArray = [beachBallOne,beachBallTwo,beachBallThree,beachBallFour]
-        print(buttonArray[0].frame)
+        
         for button in buttonArray {
         switch button {
         case beachBallOne:
